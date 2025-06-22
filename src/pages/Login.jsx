@@ -145,7 +145,7 @@ const Login = () => {
       : { username: emailOrUsername, password };
 
     try {
-      const res = await api.post("/users/login", payload);
+      const res = await api.post("/api/v1/users/login", payload);
       const { user, accessToken } = res.data?.data;
 
       setAuth({ user, accessToken });
