@@ -2,7 +2,7 @@ import api from "../../../services/api.js";
 
 export const adminLoginService = async (credentials) => {
   try {
-    const res = await api.post("/admin/login", credentials);
+    const res = await api.post("/api/v1/admin/login", credentials);
     return res.data.message;
   } catch (error) {
     const errMsg =
@@ -19,7 +19,7 @@ export const getPendingWallpapers = async () => {
   }
 
   try {
-    const res = await api.get("/admin/pendingWallpapers", {
+    const res = await api.get("/api/v1/admin/pendingWallpapers", {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -37,7 +37,7 @@ export const getPendingWallpapers = async () => {
 
 export const uploadAdminWallpaper = async (formData) => {
   try {
-    const res = await api.post("/admin/uploadWallpapers", formData, {
+    const res = await api.post("/api/v1/admin/uploadWallpapers", formData, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
         "Content-Type": "multipart/form-data",
@@ -55,7 +55,7 @@ export const uploadAdminWallpaper = async (formData) => {
 // Approve a wallpaper
 export const approveWallpaper = async (wallpaperId) => {
   try {
-    const res = await api.put(`/admin/approveWallpaper/${wallpaperId}`, null, {
+    const res = await api.put(`/api/v1/admin/approveWallpaper/${wallpaperId}`, null, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
       },
@@ -75,7 +75,7 @@ export const approveWallpaper = async (wallpaperId) => {
 // Reject a wallpaper
 export const rejectWallpaper = async (wallpaperId) => {
   try {
-    const res = await api.delete(`/admin/rejectWallpaper/${wallpaperId}`, {
+    const res = await api.delete(`/api/v1/admin/rejectWallpaper/${wallpaperId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
       },
