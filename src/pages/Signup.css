@@ -1,0 +1,252 @@
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.login-avatar {
+  height: 100px; /* optional: bigger image */
+  margin-bottom: 1rem;
+  margin-top: -60px; /* avatar ko upar le jaane ke liye */
+}
+
+.signup-wave {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: -1;
+}
+
+.signup-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0 2rem;
+}
+
+.signup-img {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.signup-bg-image {
+  width: 450px;
+}
+
+.signup-content {
+  display: flex;
+  justify-content: center; 
+  align-items: center;     
+  height: 100vh;           
+}
+
+.signup-form {
+  width: 400px;
+ }
+
+
+
+.signup-avatar {
+  height: 80px;
+}
+
+.signup-title {
+  margin: 10px 0;
+  color: #333;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+
+.signup-input-div {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7% 93%;
+  height: 50px;               /* Fixed height */
+  padding: 2rem 0.7rem;       /* Vertical padding zyada */
+  font-size: 1.05rem;
+  border-bottom: 2px solid #d9d9d9;
+}
+
+.signup-input-div.one {
+  margin-top: 0;
+}
+
+.signup-i {
+  color: #d9d9d9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.signup-label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #999;
+  font-size: 16px;
+  transition: .3s;
+}
+
+.signup-input-div:before,
+.signup-input-div:after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background-color: #8c00ff;
+  transition: .4s;
+}
+
+.signup-input-div:before {
+  right: 50%;
+}
+
+.signup-input-div:after {
+  left: 50%;
+}
+
+.signup-input-div.focus:before,
+.signup-input-div.focus:after {
+  width: 50%;
+}
+
+.signup-input-div.focus > div > .signup-label {
+  top: -16px;
+  font-size: 14px;
+}
+
+.signup-input-div.focus > .signup-i > i {
+  color: #8c00ff;
+}
+
+.signup-input-div > div > input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0.4rem 0.7rem;
+  font-size: 1rem;
+  color: #555;
+  font-family: 'Poppins', sans-serif;
+}
+
+.signup-btn {
+  display: block;
+  width: 100%;
+  height: 45px;
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #aa00ff, #b327ff);
+  background-size: 200%;
+  font-size: 1.1rem;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: .5s;
+}
+
+.signup-btn:hover {
+  background-position: right;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+
+.password-toggle:hover {
+  color: #8c00ff;
+}
+
+#input {
+  position: relative;
+  z-index: 12;
+}
+
+@media screen and (max-width: 1050px) {
+  .signup-container {
+    grid-gap: 4rem;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .signup-form {
+    width: 290px;
+  }
+
+  .signup-title {
+    font-size: 1.9rem;
+    margin: 10px 0;
+  }
+
+  .signup-bg-image {
+    width: 350px;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .signup-container {
+    grid-template-columns: 1fr;
+    overflow: hidden;
+  }
+
+  .signup-img {
+    display: none;
+  }
+
+  .signup-wave {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    z-index: -1;
+  }
+
+  .signup-content {
+    justify-content: center;
+  }
+
+  .signup-form {
+    width: 100%;
+  }
+}
+
+.signup-password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #999;
+}
+
+.signup-password-toggle:hover {
+  color: #aa00ff;
+}
+.signup-title-start {
+  color: #000; /* black or neutral */
+  font-weight: normal;
+}
+
+.signup-title-span {
+  color: #7a06ff; /* highlight "here!" */
+  font-weight: bold;
+}
