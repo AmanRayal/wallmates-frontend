@@ -43,7 +43,7 @@ const UploadWallpaper = () => {
     try {
       setLoading(true);
 const res = await axios.post(
-  `${import.meta.env.VITE_API_URL}/wallpapers/uploadWallpapers`,
+  `${import.meta.env.VITE_API_URL}/api/v1/wallpapers/uploadWallpapers`,
   data,
         {
           withCredentials: true,
