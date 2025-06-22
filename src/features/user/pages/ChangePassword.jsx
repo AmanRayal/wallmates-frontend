@@ -25,7 +25,7 @@ const ChangePassword = () => {
     setLoading(true);
     try {
       await axios.put(
-        "http://localhost:8000/api/v1/users/changeCurrentPassword",
+        "https://wallmates-backend.onrender.com/api/v1/users/changeCurrentPassword",
         formData,
         { withCredentials: true }
       );

@@ -29,7 +29,7 @@ const EditAvatar = () => {
     try {
       setLoading(true);
       const res = await axios.put(
-        "http://localhost:8000/api/v1/users/updateAvatar",
+        "https://wallmates-backend.onrender.com/api/v1/users/updateAvatar",
         formData,
         {
           withCredentials: true,

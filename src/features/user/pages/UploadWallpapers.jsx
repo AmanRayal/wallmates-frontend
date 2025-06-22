@@ -43,7 +43,7 @@ const UploadWallpaper = () => {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:8000/api/v1/wallpapers/uploadWallpapers",
+        "https://wallmates-backend.onrender.com/api/v1/wallpapers/uploadWallpapers",
         data,
         {
           withCredentials: true,
