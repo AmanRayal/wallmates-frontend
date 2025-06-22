@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../pages/Home.jsx";
 import WallpaperDetail from "../pages/WallpaperDetail.jsx"; 
-import Signup from "../pages/SignUp.jsx";
+import Signup from "@/pages/SignUp.jsx";
 import Login from "@/pages/Login.jsx";
 import Profile from "../features/user/pages/Profile.jsx"
 import ProtectedRoute from "../components/ProtectedRoute.jsx";
