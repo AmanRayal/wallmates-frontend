@@ -218,7 +218,7 @@ const Signup = () => {
       form.append("username", username);
       if (avatar) form.append("avatar", avatar);
 
-      const res = await api.post("/users/register", form);
+      const res = await api.post("/api/v1/users/register", form);
       toast.success("🎉 Signup successful! Redirecting to login...");
       setTimeout(() => {
         navigate("/login");
