@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://wallmates-backend.onrender.com/api/v1/users",
+  baseURL: `${import.meta.env.VITE_API_URL}/api/v1/users`,
   withCredentials: true,
 });
 

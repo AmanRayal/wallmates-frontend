@@ -141,20 +141,21 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const handleLogout = async () => {
-    try {
-      await axios.post(
-        "https://wallmates-backend.onrender.com",
-        {},
-        { withCredentials: true }
-      );
-      logout();
-      toast.success("Logged out successfully!");
-      navigate("/");
-    } catch (error) {
-      toast.error("Logout failed. Please try again.");
-      console.error("Logout Error:", error);
-    }
-  };
+  try {
+    await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/v1/users/logout`,
+      {},
+      { withCredentials: true }
+    );
+    logout();
+    toast.success("Logged out successfully!");
+    navigate("/");
+  } catch (error) {
+    toast.error("Logout failed. Please try again.");
+    console.error("Logout Error:", error);
+  }
+};
+
 
   const handleProfileClick = () => {
     navigate("/profile");

@@ -21,23 +21,24 @@ const ChangePassword = () => {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      await axios.put(
-        "https://wallmates-backend.onrender.com/api/v1/users/changeCurrentPassword",
-        formData,
-        { withCredentials: true }
-      );
-      toast.success("Password changed successfully!");
-      setFormData({ oldPassword: "", newPassword: "" });
-      navigate("/profile");
-    } catch (err) {
-      toast.error(err.response?.data?.message || "Password change failed.");
-    } finally {
-      setLoading(false);
-    }
-  };
+  e.preventDefault();
+  setLoading(true);
+  try {
+    await axios.put(
+      `${import.meta.env.VITE_API_URL}/api/v1/users/changeCurrentPassword`,
+      formData,
+      { withCredentials: true }
+    );
+    toast.success("Password changed successfully!");
+    setFormData({ oldPassword: "", newPassword: "" });
+    navigate("/profile");
+  } catch (err) {
+    toast.error(err.response?.data?.message || "Password change failed.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div
