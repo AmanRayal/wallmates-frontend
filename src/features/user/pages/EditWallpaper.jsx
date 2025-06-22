@@ -16,7 +16,7 @@ const EditWallpaper = () => {
   useEffect(() => {
     const fetchWallpaper = async () => {
       try {
-        const res = await api.get(`/wallpapers/getUserSingleWallpaper/${wallpaperId}`);
+        const res = await api.get(`/api/v1/wallpapers/getUserSingleWallpaper/${wallpaperId}`);
         const data = res.data.message;
         setFormData({
           title: data.title || "",
