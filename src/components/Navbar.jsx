@@ -202,7 +202,7 @@ const Navbar = () => {
 
             {/* Dropdown */}
             <div
-  className={`absolute right-0 top-14 bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl rounded-xl w-72 z-50 transition-all duration-200 ease-out transform ${
+  className={`absolute right-0 top-14 bg-white/20 backdrop-blur-md border border-white/20 shadow-2xl rounded-xl w-72 z-50 transition-all duration-200 ease-out transform ${
     dropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
   }`}
 >
