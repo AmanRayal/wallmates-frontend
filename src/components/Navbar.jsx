@@ -215,19 +215,19 @@ const Navbar = () => {
     />
     <div className="text-left">
       <h3 className="text-base font-semibold">{user.username}</h3>
-      <p className="text-sm text-gray-600 truncate">{user.email}</p>
+      <p className="text-sm text-black truncate">{user.email}</p>
     </div>
   </div>
 
   <hr className="border-white/20" />
-
+ 
   {/* Dropdown Options */}
   <div className="py-2">
     <button
       onClick={handleProfileClick}
-      className="w-full flex items-center gap-3 px-5 py-3 text-sm text-black hover:bg-white/20 transition rounded-md"
+      className="w-full flex items-center gap-3 px-5 py-3 text-sm font-semibold text-black hover:bg-white/20 transition rounded-md"
     >
-      <FaUserCircle className="text-green-300 text-lg" />
+      <FaUserCircle className="text-green-500 text-lg font-semibold" />
       <span>Profile</span>
     </button>
 
@@ -235,7 +235,7 @@ const Navbar = () => {
       onClick={handleLogout}
       className="w-full flex items-center gap-3 px-5 py-3 text-sm text-red-500 hover:bg-red-400/20 transition rounded-md"
     >
-      <FaSignOutAlt className="text-red-300 text-lg" />
+      <FaSignOutAlt className="text-red-500 text-lg" />
       <span>Logout</span>
     </button>
   </div>
