@@ -4,7 +4,7 @@ import api from "./api.js";
 
 export const searchWallpapers = async (query, page = 1, limit = 10) => {
   try {
-    const res = await api.get(`/wallpapers/search`, {
+    const res = await api.get(`/api/v1/wallpapers/search`, {
       params: { query, page, limit },
     });
 
@@ -32,7 +32,7 @@ export const searchWallpapers = async (query, page = 1, limit = 10) => {
 export const getAllWallpapers = async (page = 1, limit = 20) => {
   try {
     const res = await api.get(
-      `/wallpapers/getallWallpapers?page=${page}&limit=${limit}`
+      `/api/v1/wallpapers/getallWallpapers?page=${page}&limit=${limit}`
     );
 
     return res.data?.data;
@@ -55,7 +55,7 @@ export const getAllWallpapers = async (page = 1, limit = 20) => {
 export const editUserWallpaper = async (wallpaperId, data) => {
   try {
     const res = await api.put(
-      `/wallpapers/editUserWallpaper/${wallpaperId}`,
+      `/api/v1/wallpapers/editUserWallpaper/${wallpaperId}`,
       data
     );
     return res.data;
@@ -71,7 +71,7 @@ export const editUserWallpaper = async (wallpaperId, data) => {
 // Delete a wallpaper
 export const deleteUserWallpaper = async (wallpaperId) => {
   try {
-    const res = await api.delete(`/wallpapers/deleteWallpaper/${wallpaperId}`);
+    const res = await api.delete(`/api/v1/wallpapers/deleteWallpaper/${wallpaperId}`);
     return res.data;
   } catch (error) {
     console.error(
@@ -86,7 +86,7 @@ export const deleteUserWallpaper = async (wallpaperId) => {
 
 export const downloadWallpaper = async (wallpaperId) => {
   try {
-    const res = await api.get(`/wallpapers/download/${wallpaperId}`);
+    const res = await api.get(`/api/v1/wallpapers/download/${wallpaperId}`);
     return res.data;
   } catch (error) {
     console.error(
@@ -101,7 +101,7 @@ export const downloadWallpaper = async (wallpaperId) => {
 
 export const likeWallpaper = async (wallpaperId) => {
   try {
-    const res = await api.post(`/wallpapers/like/${wallpaperId}`);
+    const res = await api.post(`/api/v1/wallpapers/like/${wallpaperId}`);
     return res.data;
   } catch (error) {
     console.error(
@@ -115,7 +115,7 @@ export const likeWallpaper = async (wallpaperId) => {
 // get like wallpapers
 export const getLikedWallpapers = async () => {
   try {
-    const res = await api.get("/users/likedWallpaper");
+    const res = await api.get("/api/v1/users/likedWallpaper");
     return res.data?.data || [];
   } catch (error) {
     console.error("Failed to fetch liked wallpapers", error);

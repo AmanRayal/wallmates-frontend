@@ -141,20 +141,21 @@ const Navbar = () => {
   const dropdownRef = useRef(null);
 
   const handleLogout = async () => {
-    try {
-      await axios.post(
-        "http://localhost:8000/api/v1/users/logout",
-        {},
-        { withCredentials: true }
-      );
-      logout();
-      toast.success("Logged out successfully!");
-      navigate("/");
-    } catch (error) {
-      toast.error("Logout failed. Please try again.");
-      console.error("Logout Error:", error);
-    }
-  };
+  try {
+    await axios.post(
+      `${import.meta.env.VITE_API_URL}/api/v1/users/logout`,
+      {},
+      { withCredentials: true }
+    );
+    logout();
+    toast.success("Logged out successfully!");
+    navigate("/");
+  } catch (error) {
+    toast.error("Logout failed. Please try again.");
+    console.error("Logout Error:", error);
+  }
+};
+
 
   const handleProfileClick = () => {
     navigate("/profile");
@@ -201,12 +202,12 @@ const Navbar = () => {
 
             {/* Dropdown */}
             <div
-  className={`absolute right-0 top-14 bg-white/10 backdrop-blur-md border border-white/20 shadow-2xl rounded-xl w-72 z-50 transition-all duration-200 ease-out transform ${
+  className={`absolute right-0 top-14 bg-white/20 backdrop-blur-md border border-white/20 shadow-2xl rounded-xl w-72 z-50 transition-all duration-200 ease-out transform ${
     dropdownOpen ? "opacity-100 scale-100" : "opacity-0 scale-95 pointer-events-none"
   }`}
 >
   {/* Profile Info */}
-  <div className="px-5 py-4 text-white flex items-center space-x-4">
+  <div className="px-5 py-4 text-black flex items-center space-x-4">
     <img
       src={user.avatar || defaultAvatar}
       alt="avatar"
@@ -214,27 +215,27 @@ const Navbar = () => {
     />
     <div className="text-left">
       <h3 className="text-base font-semibold">{user.username}</h3>
-      <p className="text-sm text-gray-300 truncate">{user.email}</p>
+      <p className="text-sm text-black truncate">{user.email}</p>
     </div>
   </div>
 
   <hr className="border-white/20" />
-
+ 
   {/* Dropdown Options */}
   <div className="py-2">
     <button
       onClick={handleProfileClick}
-      className="w-full flex items-center gap-3 px-5 py-3 text-sm text-white hover:bg-white/20 transition rounded-md"
+      className="w-full flex items-center gap-3 px-5 py-3 text-sm font-semibold text-black hover:bg-white/20 transition rounded-md"
     >
-      <FaUserCircle className="text-green-300 text-lg" />
+      <FaUserCircle className="text-green-500 text-lg font-semibold" />
       <span>Profile</span>
     </button>
 
     <button
       onClick={handleLogout}
-      className="w-full flex items-center gap-3 px-5 py-3 text-sm text-red-300 hover:bg-red-400/20 transition rounded-md"
+      className="w-full flex items-center gap-3 px-5 py-3 text-sm text-red-500 hover:bg-red-400/20 transition rounded-md"
     >
-      <FaSignOutAlt className="text-red-300 text-lg" />
+      <FaSignOutAlt className="text-red-500 text-lg" />
       <span>Logout</span>
     </button>
   </div>

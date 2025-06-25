@@ -281,7 +281,7 @@ const WallpaperDetail = () => {
       setWallpaper(null);
 
       try {
-        const res = await api.get(`/wallpapers/getSinglewallpapers/${id}`);
+        const res = await api.get(`/api/v1/wallpapers/getSinglewallpapers/${id}`);
         setWallpaper(res.data?.message);
       } catch (error) {
         console.error("Failed to fetch wallpaper detail:", error);
@@ -298,7 +298,7 @@ const WallpaperDetail = () => {
 
     const fetchAllWallpapers = async () => {
       try {
-        const res = await api.get(`/wallpapers/getAllWallpapers?page=1&limit=100`);
+        const res = await api.get(`/api/v1/wallpapers/getAllWallpapers?page=1&limit=100`);
         const all = res.data?.data?.wallpapers || [];
 
         const related = all.filter((w) => {

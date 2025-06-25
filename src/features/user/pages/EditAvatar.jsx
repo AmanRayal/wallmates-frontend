@@ -19,38 +19,39 @@ const EditAvatar = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!avatarFile) return toast.error("Please select an avatar image");
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!avatarFile) return toast.error("Please select an avatar image");
 
-    const formData = new FormData();
-    formData.append("avatar", avatarFile);
+  const formData = new FormData();
+  formData.append("avatar", avatarFile);
 
-    try {
-      setLoading(true);
-      const res = await axios.put(
-        "http://localhost:8000/api/v1/users/updateAvatar",
-        formData,
-        {
-          withCredentials: true,
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+  try {
+    setLoading(true);
+    const res = await axios.put(
+      `${import.meta.env.VITE_API_URL}/api/v1/users/updateAvatar`,
+      formData,
+      {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      }
+    );
 
-      toast.success("Avatar updated successfully!");
-      navigate("/profile");
+    toast.success("Avatar updated successfully!");
+    navigate("/profile");
 
-      setAuth({ user: res.data.data }); // Update global user with new avatar
-      setFileName(""); // Reset the file name
-      setAvatarFile(null); // Reset the file
-    } catch (error) {
-      toast.error(error.response?.data?.message || "Avatar update failed");
-    } finally {
-      setLoading(false);
-    }
-  };
+    setAuth({ user: res.data.data }); // Update global user with new avatar
+    setFileName(""); // Reset the file name
+    setAvatarFile(null); // Reset the file
+  } catch (error) {
+    toast.error(error.response?.data?.message || "Avatar update failed");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div
