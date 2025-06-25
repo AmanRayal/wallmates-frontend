@@ -12,7 +12,7 @@ const UserWallpaperDetail = () => {
   useEffect(() => {
     const fetchWallpaper = async () => {
       try {
-        const res = await api.get(`/wallpapers/getUserSingleWallpaper/${wallpaperId}`);
+        const res = await api.get(`api/v1/wallpapers/getUserSingleWallpaper/${wallpaperId}`);
         setWallpaper(res.data.message);
       } catch (err) {
         console.error("Error fetching wallpaper:", err);
